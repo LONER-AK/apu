@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // A closure is the combination of a function bundled together (enclosed ) with references to its surrounding state(the lexical state);
+
+      //In the other words a closure gives you access to an outer functions scope from inner function
+
+      // in js closures are created everytime a function is created atfunction creation time
+
+      // Outer function 'outerFun' takes a parameter 'a'
+      const outerFun = (a) => {
+        // Local variable 'b' within the outer function
+        let b = 10;
+
+        // Inner function 'innerFun' defined inside the outer function
+        const innerFun = () => {
+          // Local variable 'sum' within the inner function, accessing 'a' and 'b'
+          let sum = a + b;
+
+          // Log the sum to the console
+          console.log(`the sum of two numbers is ${sum}`);
+        };
+
+        // Return the inner function from the outer function
+        return innerFun;
+      };
+
+      // Call the outer function with argument 5 and store the returned inner function
+      let checkClosure = outerFun(5);
+
+      // Log the returned inner function (closure)
+      console.log(checkClosure);
+
+      // Call the returned inner function (closure)
+      checkClosure();
+
+      console.dir(checkClosure);
+
+      //**************************************************
+
+      //CURRYING--IS A TECHNIQUE OF AVLUATING FUNCTION WITH  MULTIPLE ARGUEMNETS INTO SEQUENCE OF FUNCTION WITH SINGLE ARGUEMENT
+
+      // OTHER WORDS,WHEN A FUNCTION INSTEAD OF TAKING ALL ARGUEMENTS AT ONE TIME ,TAKES THE FIRST ONE AND RETURN A NEW FUNCTION THAT TAKES THE SECOND ONE AND RETURNS A NEW FUNCTION WHICH TAKES THE THIRD ONE AND SO FORTH UNTIL ALL ARGUEMENTS HAVE BEEN FULFILLED
+
+      // SUM(5)(3)(8)
+
+      function sum(a) {
+        // console.log(a);
+
+        return function (b) {
+          console.log(a, b);
+
+          return function (c) {
+            console.log(a + b + c);
+          };
+        };
+      }
+
+      sum(5)(3)(8);
+
+      //ANOTHER METHOD
+
+      const sum = (num1) => (num2) => (num3) => console.log(num1 + num2 + num3);
+
+      sum(5)(3)(8);
+
+
+
+
+
+      
+    </script>
+  </body>
+</html>

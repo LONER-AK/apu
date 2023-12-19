@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //HOISTING IN JS
+      //WE HAVE CREATION PHASE AND THE EXECUTION PHASE
+      // HOISTING IN JS IS A MECHANISM WHERE VARIABLES AND FUNCTIONS DECLARATIONS ARE MOVED TO THE TOP OF THEIR SCOPE
+      //BEFORE THE CODE EXECUTES
+
+      // FOR EXAMPLE
+
+      //******************************************************
+      //   console.log(myName);//output will be undefined]
+
+      //   var myName;
+
+      //   myName = "lonerAk";
+
+      //   console.log(myName)
+
+      //   console.log(myName); //output will be undefined]
+
+      //   let myName;
+
+      //   myName = "lonerAk";
+
+      //   console.log(myName);
+
+      // HOW IT WILL BE IN CRETION PHASE
+
+      //var myName = undefined;
+
+      // console.log(myName);
+      // myName = "loneWolf";
+
+      //******************************************************
+      //IN ES2015 AKA ES6 ,HOISTING IS AVOIDED BY USING THE LET KEYWORD
+      // INSTEAD OF VAR.(THE OTHER DIFFERENCE IS THAT VARIABLES DECLARED )
+      // WITH LET ARE LOCAL TO THE SURROUNDING BLOCK ,NOT THE ENTIRE FUNCTION
+
+      //************************************************
+
+      //   SCOPE AND EXICAL SCOPING
+
+      //SCOPE CHAIN IS USED TO RESOLVE THE VALUES OF VARIABLES NAMES IN JS
+      // SCOPE CHAIN IN JS IS LEXICALLY DEFINED ,WHICH MEANS THAT WE CAN SEE WHAT THE SCOPE CHAIN WILL BE BY LOOKING AT THE CODE
+
+      //AT THE TOP WE HAVE GLOBAL SCOPE WHICH IS THE WINDOW OBJECT IN THE BROWSER
+
+      //LEXICAL SCOPING MEANS NOW ,THE INNER FUNCTION CAN GET ACCESS TO THEIR PARENT FUNCTIONS VARIABLES BUT THE VICE VERSA IS NOT TRUE
+
+      function all() {
+        let first = "Loner";
+
+        function kyoya() {
+          let second = "Ak";
+          console.log(first, second);
+        }
+
+        kyoya(); // Call kyoya function inside the all function
+      }
+
+      // Call the all function
+      all();
+
+      //********************************************************
+
+      //FOR EXAMPLE
+
+      // Global variable 'a'
+      let a = "hello guys";
+
+      // First function 'first'
+      const first = () => {
+        // Local variable 'b' within the 'first' function
+        let b = "how are you";
+
+        // Second function 'second' defined inside the 'first' function
+        const second = () => {
+          // Local variable 'c' within the 'second' function
+          let c = "Hi, I am fine thank you";
+
+          // Uncomment the line below to log the concatenated string
+          console.log(a + " " + b + " " + c);
+        };
+
+        // Call the 'second' function from within the 'first' function
+        second();
+
+        console.log("outside the function", a + b + c);
+
+        // we cant access c outside
+      };
+
+      // Call the 'first' function
+      first();
+    </script>
+  </body>
+</html>
